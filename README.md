@@ -21,4 +21,7 @@ For example: if you want to retrieve the past 7 days of stock data, NDAYS = 7 an
 
 1. Using Minikube version `v1.28`
 2. `minikube start`
-3. 
+3. Enable Ingress Controller `minikube addons enable ingress`
+4. Confirm: `kubectl get pod -n ingress-nginx`
+5. Deploy the deployment and ingress `kubectl apply -f kubeYAML`
+6. Run `minikube tunnel`

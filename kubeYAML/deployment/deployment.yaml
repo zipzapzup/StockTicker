@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stockpicker-deployment
+  labels:
+    app: stockpicker
+    lang: go
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: stockpicker
+      lang: go
+  template:
+    metadata:
+      labels:
+        app: stockpicker
+        lang: go
+    spec:
+      containers:
+      - name: stockpicker
+        image: perfected/stockpicker
+        ports:
+        - name: stockpicker-svc
+          containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stockpicker-service
+spec:
+  selector:
+    app: stockpicker
+  ports:
+    - name: stockpicker-ports
+      protocol: TCP
+      port: 80
+      targetPort: stockpicker-svc
+
