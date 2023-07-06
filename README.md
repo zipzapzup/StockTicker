@@ -6,4 +6,4 @@ NDAYS of data calculate the past days starting from today.
 
 For example: if you want to retrieve the past 7 days of stock data, NDAYS = 7 and it will start counting for any stock data 7 days back(including today).
 
-##
+## 
