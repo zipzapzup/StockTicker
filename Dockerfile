@@ -7,7 +7,7 @@ RUN go mod download
 
 COPY *.go ./
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o /stockticker
+RUN CGO_ENABLED=0 GOOS=linux go build cmd/stockticker/stockticker.go -o /stockticker
 
 EXPOSE 8080
 
