@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: stockpicker
+  name: stockpicker_pod_test
 spec:
   containers:
-  - name: stockpicker
+  - name: stockpicker_pod_test
     image: perfected/stockpicker
     ports:
     - containerPort: 8080

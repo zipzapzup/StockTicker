@@ -13,8 +13,8 @@ For example: if you want to retrieve the past 7 days of stock data, NDAYS = 7 an
 3. Locally test to see it works: `curl http://localhost:8080`
 
 ## Publish the Image
-1. Create a DockerHub Repository $1/stockpicker, where $1 is your username
-2. Run `docker tag zipzapzup-stockpicker $1/stockpicker` and substitute $1 to your docker hub username
+1. Create a DockerHub Repository `$1`/stockpicker, where `$1` is your username
+2. Run `docker tag zipzapzup-stockpicker $1/stockpicker` and substitute `$1` to your docker hub username
 2. Publish via `docker push $1/stockpicker`
 
 ## Minikube
@@ -24,4 +24,9 @@ For example: if you want to retrieve the past 7 days of stock data, NDAYS = 7 an
 3. Enable Ingress Controller `minikube addons enable ingress`
 4. Confirm: `kubectl get pod -n ingress-nginx`
 5. Deploy the deployment and ingress `kubectl apply -f kubeYAML`
-6. Run `minikube tunnel`
+7. Deploy
+    - `kubectl apply -f deployment/deployment.yaml`
+    - `kubectl apply -f ingress/stockpicker-ingress.yaml`
+8. Add `192.168.49.2	127.0.0.1` to your `/etc/hosts`
+9. Run `minikube tunnel`
+10. Voila and now test: `curl 127.0.0.1:80` !
