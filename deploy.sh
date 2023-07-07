@@ -14,10 +14,10 @@ kubectl get pod -n ingress-nginx
 
 # Deploy the Kubernetes in Minikube
 
-kubectl apply -f configmaps/stock-config.yaml
-kubectl apply -f secrets/stock-secret.yaml
-kubectl apply -f deployment/deployment.yaml
-kubectl apply -f ingress/stockpicker-ingress.yaml
+kubectl apply -f kubeYAML/configmaps/stock-config.yaml
+kubectl apply -f kubeYAML/secrets/stock-secret.yaml
+kubectl apply -f kubeYAML/deployment/deployment.yaml
+kubectl apply -f kubeYAML/ingress/stockpicker-ingress.yaml
 
 # Run Minikube tunnel
 minikube tunnel

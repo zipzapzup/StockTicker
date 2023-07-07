@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 
 	"stockticker/pkg/dates"
 	"stockticker/pkg/stock"
@@ -19,6 +20,9 @@ var GlobalNDAYS int
 
 func init() {
 	GlobalAPIKEY = os.Getenv("SECRET_APIKEY")
+	// Sanitise input
+	GlobalAPIKEY = strings.ReplaceAll(GlobalAPIKEY, "\n", "")
+
 	GlobalSYMBOL = os.Getenv("VAR_SYMBOL")
 	ndays, _ := strconv.Atoi(os.Getenv("VAR_NDAYS"))
 	GlobalNDAYS = ndays

@@ -23,9 +23,19 @@ Note: Do not run this unless you have access to my personal docker hub "perfecte
 
 ## Minikube - Deploy step
 
-Require: Minikube `v1.28` at least
-1. `brew install minikube`
+Requirements:
+1. Minikube `v1.28` at least `brew install minikube`
+2. Kubectl `brew install kubectl`
+3. Docker Desktop `Install Docker Desktop`
 
+Automated Deploy Run
+1. `./deploy.sh` 
+2. Prompt Admin password
+3. Add `${ingress IP Address}	127.0.0.1` to your `/etc/hosts`
+4. Confirm `curl 127.0.0.1:80`
+
+
+Manual Steps:
 1. Using Minikube version `v1.28`
 2. `minikube start`
 3. Enable Ingress Controller `minikube addons enable ingress`
