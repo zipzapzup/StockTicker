@@ -25,8 +25,11 @@ For example: if you want to retrieve the past 7 days of stock data, NDAYS = 7 an
 4. Confirm: `kubectl get pod -n ingress-nginx`
 5. Deploy the deployment and ingress `kubectl apply -f kubeYAML`
 7. Deploy
+    - `kubectl apply -f configmaps/stock-config.yaml`
+    - `kubectl apply -f secrets/stock-secret.yaml`
     - `kubectl apply -f deployment/deployment.yaml`
     - `kubectl apply -f ingress/stockpicker-ingress.yaml`
 8. Add `192.168.49.2	127.0.0.1` to your `/etc/hosts`
 9. Run `minikube tunnel`
-10. Voila and now test: `curl 127.0.0.1:80` !
+10. Voila and now test to confirm Ingress: `curl 127.0.0.1:80` !
+

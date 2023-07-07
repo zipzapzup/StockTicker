@@ -20,6 +20,22 @@ spec:
       containers:
       - name: stockpicker
         image: perfected/stockpicker
+        env:
+        - name: VAR_SYMBOL
+          valueFrom:
+            configMapKeyRef:
+              name: stockpicker-cm
+              key: SYMBOL
+        - name: VAR_NDAYS
+          valueFrom:
+            configMapKeyRef:
+              name: stockpicker-cm
+              key: NDAYS
+        - name: SECRET_APIKEY
+          valueFrom:
+            secretKeyRef:
+              name: stock-api
+              key: APIKEY
         ports:
         - name: stockpicker-svc
           containerPort: 8080
