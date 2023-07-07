@@ -29,12 +29,14 @@ func ClientGetStock(SYMBOL string, API string) []byte {
 	resp, err := client.Get(url)
 	if err != nil {
 		log.Println(err)
+		log.Panic()
 	}
 	defer resp.Body.Close()
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Println(err)
+		log.Panic()
 	}
 
 	return body
@@ -48,6 +50,7 @@ func ClientConvert(RawBody []byte) StockAlpha {
 	err := json.Unmarshal(RawBody, &NewStock)
 	if err != nil {
 		log.Println(err)
+		log.Panic()
 	}
 
 	return NewStock
