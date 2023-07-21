@@ -1,3 +1,6 @@
+// dates package handle the conversion of NDAYS
+// NDAYS will convert and match the number of calendar date to stock date
+// past 7 days of NDAYS from Saturday mean MON-FRI of trading day
 package dates
 
 import "time"

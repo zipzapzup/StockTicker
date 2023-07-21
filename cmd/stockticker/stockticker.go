@@ -1,3 +1,5 @@
+// stockticker main package. Entrypoint of the server side golang
+// runs default on 0.0.0.0:8080
 package main
 
 import (
@@ -13,11 +15,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var LocalAddress = "0.0.0.0:8080"
+const LocalAddress = "0.0.0.0:8080"
+
 var GlobalAPIKEY string
 var GlobalSYMBOL string
 var GlobalNDAYS int
 
+// initialise the program
 func init() {
 	GlobalAPIKEY = os.Getenv("SECRET_APIKEY")
 	// Sanitise input
@@ -39,6 +43,7 @@ func main() {
 	router.Run(LocalAddress)
 }
 
+// function handler to the root directory
 func GetStock(c *gin.Context) {
 
 	// Limitations: 500 requests per day

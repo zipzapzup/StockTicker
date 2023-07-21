@@ -1,3 +1,4 @@
+// package stock specifically used to calculate the average price
 package stock
 
 import (

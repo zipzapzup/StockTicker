@@ -1,3 +1,5 @@
+// package stock that handles the external JSON conversion
+// Unmarshal JSON from external third party site
 package stock
 
 import (

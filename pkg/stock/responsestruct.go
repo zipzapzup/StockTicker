@@ -1,3 +1,5 @@
+// package stock which creates the StockResponse structure
+// StockResponse will be returned to the handler
 package stock
 
 type StockResponse struct {
